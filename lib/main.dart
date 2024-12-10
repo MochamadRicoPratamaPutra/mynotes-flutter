@@ -76,8 +76,30 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late final TextEditingController _email;
+  late final TextEditingController _password;
+
+  @override
+  void initState() {
+    _email = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,9 +108,19 @@ class HomePage extends StatelessWidget {
         title: const Text('Register'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(
-          child: TextButton(
-              onPressed: () async {}, child: const Text('Register'))),
+      body: Column(
+        children: [
+          TextField(
+            controller: _email,
+            decoration: const InputDecoration(hintText: 'Enter your email'),
+          ),
+          TextField(
+            controller: _password,
+            decoration: const InputDecoration(hintText: 'Enter your password'),
+          ),
+          TextButton(onPressed: () async {}, child: const Text('Register')),
+        ],
+      ),
     );
   }
 }
