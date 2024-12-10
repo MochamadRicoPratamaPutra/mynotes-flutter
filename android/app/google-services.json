@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "791744060505",
+    "project_id": "mynotes-project-flutter-rico",
+    "storage_bucket": "mynotes-project-flutter-rico.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791744060505:android:f467dbda79ffc117f2e548",
+        "android_client_info": {
+          "package_name": "com.redbit.mynotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG0Ixt3KwAzJB6q2FQoCivyZApEZWviyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
