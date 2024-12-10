@@ -87,7 +87,8 @@ class HomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
-          child: TextButton(onPressed: () {}, child: const Text('Register'))),
+          child: TextButton(
+              onPressed: () async {}, child: const Text('Register'))),
     );
   }
 }
