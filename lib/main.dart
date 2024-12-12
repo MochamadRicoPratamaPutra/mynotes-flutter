@@ -12,7 +12,7 @@ void main() {
       useMaterial3: true,
     ),
     // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    home: const HomePage(),
+    home: const RegisterView(),
   ));
 }
 
@@ -154,5 +154,19 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
+  }
+}
+
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
+
+  @override
+  State<RegisterView> createState() => _RegisterViewState();
+}
+
+class _RegisterViewState extends State<RegisterView> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
