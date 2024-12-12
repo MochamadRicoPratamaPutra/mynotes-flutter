@@ -80,14 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   late final TextEditingController _email;
   late final TextEditingController _password;
 
@@ -154,19 +154,5 @@ class _LoginViewState extends State<LoginView> {
         },
       ),
     );
-  }
-}
-
-class RegisterView extends StatefulWidget {
-  const RegisterView({super.key});
-
-  @override
-  State<RegisterView> createState() => _RegisterViewState();
-}
-
-class _RegisterViewState extends State<RegisterView> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
