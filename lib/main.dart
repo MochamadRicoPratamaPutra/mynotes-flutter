@@ -13,7 +13,7 @@ void main() {
       useMaterial3: true,
     ),
     // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    home: const LoginView(),
+    home: const RegisterView(),
   ));
 }
 
@@ -147,7 +147,15 @@ class _RegisterViewState extends State<RegisterView> {
                                   email: email, password: password);
                           print(userCredential);
                         } on FirebaseAuthException catch (e) {
-                          print(e.code);
+                          if (e.code == 'weak-password') {
+                            print('Weak Password');
+                          } else if (e.code == 'email-already-in-use') {
+                            print("Email is already in use");
+                          } else if (e.code == 'invalid-email') {
+                            print('Invalid Email');
+                          } else {
+                            print(e.code);
+                          }
                         }
                       },
                       child: const Text('Register')),
