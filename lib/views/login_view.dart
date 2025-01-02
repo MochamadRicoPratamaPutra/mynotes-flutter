@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
-
 import 'package:mynotes/constants/routes.dart';
+import 'package:mynotes/utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -40,34 +39,61 @@ class _LoginViewState extends State<LoginView> {
           TextField(
             controller: _email,
             autocorrect: false,
+            enableSuggestions: false,
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(hintText: 'Enter your email'),
+            decoration: const InputDecoration(
+              hintText: 'Enter your email',
+            ),
           ),
           TextField(
             controller: _password,
             obscureText: true,
             enableSuggestions: false,
             autocorrect: false,
-            decoration: const InputDecoration(hintText: 'Enter your password'),
+            decoration: const InputDecoration(
+              hintText: 'Enter your password',
+            ),
           ),
           TextButton(
               onPressed: () async {
                 final email = _email.text;
                 final password = _password.text;
                 try {
-                  final userCredential = await FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
-                          email: email, password: password);
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: email,
+                    password: password,
+                  );
                   Navigator.of(context).pushNamedAndRemoveUntil(
                     notesRoute,
                     (route) => false,
                   );
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {
-                    devtools.log('User not found');
+                    await showErrorDialog(
+                      context,
+                      'User not found',
+                    );
                   } else if (e.code == 'wrong-password') {
-                    devtools.log('Wrong Password');
+                    await showErrorDialog(
+                      context,
+                      'Wrong Password',
+                    );
+                  } else if (e.code == 'invalid-credential') {
+                    await showErrorDialog(
+                      context,
+                      'Wrong Email or Password',
+                    );
+                  } else {
+                    await showErrorDialog(
+                      context,
+                      'Error: ${e.code}',
+                    );
                   }
+                } catch (e) {
+                  await showErrorDialog(
+                    context,
+                    'Error: ${e.toString()}',
+                  );
                 }
               },
               child: const Text('Login')),
