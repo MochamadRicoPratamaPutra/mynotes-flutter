@@ -12,10 +12,9 @@ void main() {
   runApp(MaterialApp(
     title: 'Flutter Demo',
     theme: ThemeData(
-        primarySwatch: Colors.blue,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
-        )),
+      primarySwatch: Colors.blue,
+      useMaterial3: false,
+    ),
     home: const HomePage(),
     routes: {
       loginRoute: (context) => const LoginView(),
