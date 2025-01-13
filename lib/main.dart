@@ -11,7 +11,11 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
     title: 'Flutter Demo',
-    theme: ThemeData(primarySwatch: Colors.blue),
+    theme: ThemeData(
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+        )),
     home: const HomePage(),
     routes: {
       loginRoute: (context) => const LoginView(),
