@@ -5,14 +5,14 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' show join;
 
-class NotesServices {
+class NotesService {
   Database? _database;
 
   List<DatabaseNote> _notes = [];
 
-  static final NotesServices _shared = NotesServices._sharedInstance();
-  NotesServices._sharedInstance();
-  factory NotesServices() => _shared;
+  static final NotesService _shared = NotesService._sharedInstance();
+  NotesService._sharedInstance();
+  factory NotesService() => _shared;
 
   final _notesStreamController =
       StreamController<List<DatabaseNote>>.broadcast();
