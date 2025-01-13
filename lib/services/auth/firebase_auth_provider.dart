@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mynotes/firebase_options.dart';
 import 'package:mynotes/services/auth/auth_user.dart';
@@ -71,7 +73,7 @@ class FirebaseAuthProvider implements AuthProvider {
       } else if (e.code == 'wrong-password') {
         throw WrongPasswordAuthException();
       } else if (e.code == 'invalid-credential') {
-        throw InvalidEmailAuthException();
+        throw InvalidCredentialAuthException();
       } else {
         throw GenericAuthException();
       }
