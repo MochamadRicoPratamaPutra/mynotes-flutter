@@ -21,7 +21,7 @@ void main() {
       registerRoute: (context) => const RegisterView(),
       notesRoute: (context) => const NotesView(),
       verifyEmailRoute: (context) => const VerifyEmaiLView(),
-      newNoteRoute: (context) => const CreateUpdateNoteView(),
+      createOrUpdateNote: (context) => const CreateUpdateNoteView(),
     },
   ));
 }
