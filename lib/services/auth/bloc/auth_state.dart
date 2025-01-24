@@ -25,7 +25,7 @@ class AuthStateRegistering extends AuthState {
 }
 
 class AuthStateForgotPassword extends AuthState {
-  final Exception exception;
+  final Exception? exception;
   final bool hasSentEmail;
 
   const AuthStateForgotPassword({
